@@ -23,7 +23,7 @@
 - For each click the background color changes to a random color, then changes back after 5 seconds.
 
 ## BONUS 5
-- Let the user enter the name of the element to reveal through an HTML input. Use a button to submit the input. (Hint: you won't need `event` for this.
+- Let the user enter the name of the element to reveal through an HTML input. Use a button to submit the input. (Hint: you won't need `event` for this.)
 
 ## BONUS 5.5 
 - Let the user know when they've entered the name of an element that doesn't exist.
