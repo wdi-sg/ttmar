@@ -60,7 +60,79 @@
 
 
   <script>
+    var running = true;
+    var clickCount = 0;
+    var secondChorusCount = -1;
+    var prebuiltColours = ["silver", "gray", "red", "maroon", "yellow", "olive", "lime", "green", "fuchsia", "purple"];
+    document.addEventListener("DOMContentLoaded", function() {
 
+
+
+      function bgColour() {
+        clickCount = clickCount + 1;
+        if (clickCount === 5) {
+          alert("User has clicked 5 times!");
+        }
+        var randomize = Math.floor((Math.random() * 10));
+        document.querySelector("body").style.backgroundColor = prebuiltColours[randomize];
+        setTimeout(function white() {document.querySelector("body").style.backgroundColor = "white"}, 5000);
+      }
+    
+      var backgroundChange = document.querySelector("#first_paragraph");
+      backgroundChange.addEventListener("click", bgColour);
+
+      function printAllPara() {
+        var idOfClick = this.id;
+        for (j = 0; j < idOfClick.length; j++) {  
+            document.querySelectorAll("." + idOfClick)[j].style.display = "block";
+            bgColour();
+         }
+      }
+
+      var allParaChange = document.querySelectorAll("#second_paragraph, #first_chorus, #third_paragraph, #fourth_paragraph");
+      for (i = 0; i < allParaChange.length; i++) {
+        allParaChange[i].addEventListener("click", printAllPara);
+       }
+     
+       function printSecondChorus() {
+        bgColour();
+        var idOfClick = this.id;
+        secondChorusCount = secondChorusCount + 1;
+        document.querySelectorAll("." + idOfClick)[clickCount].style.display = "block";
+       }
+
+       var secondChorusChange = document.querySelector("#second_chorus");
+        secondChorusChange.addEventListener("click", printSecondChorus);
+
+
+
+
+
+
+        var queryBox = document.createElement("INPUT")
+        var btn = document.createElement("BUTTON");
+        var t = document.createTextNode("Submit");
+
+
+        document.body.appendChild(queryBox);
+        btn.appendChild(t);
+        document.body.appendChild(btn);
+
+        var queryInput = document.querySelector("input").value;
+        var highlightChange = document.querySelector("button");
+        
+
+        function boldBorder() {
+          var inputElements = document.querySelectorAll(queryInput);
+          for (i = 0; i < inputElements.length; i++) {
+
+            queryInput[i].style.border = "bold";
+          }
+        };
+
+        highlightChange.addEventListener("click", boldBorder);
+
+    });
   </script>
 </body>
 </html>
