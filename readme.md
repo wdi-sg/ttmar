@@ -12,10 +12,18 @@
 - When the last link is clicked, one line of the chorus should be displayed. Each subsequent click should display an additional line of the chorus until all 6 lines are displayed.
 
 ## BONUS 2
-- Keep count of the total number of clicks, and alert the user when they get to five clicks.
+- For each click, the background color changes to a random color.
 
 ## BONUS 3
-- For each click, the background color changes to a random color.
+- Keep count of the total number of clicks, and alert the user when they get to five clicks.
+
+
 
 ## BONUS 4
 - For each click the background color changes to a random color, then changes back after 5 seconds.
+
+## BONUS 5
+- Let the user enter the name of the element to reveal through an HTML input. Use a button to submit the input. (Hint: you won't need `event` for this.
+
+## BONUS 5.5 
+- Let the user know when they've entered the name of an element that doesn't exist.
