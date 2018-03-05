@@ -1,4 +1,5 @@
 # Take the Money and Run!
+![](https://img.discogs.com/VsX7V6WrFyQn_LtrXGMqzn7j3ko=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-2008976-1258280335.jpeg.jpg)
 
 **Do Not Touch Anything in the `body` tag.** You are only allowed to write code in javascript.
 
