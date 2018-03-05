@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
   <meta charset="utf-8">
   <title>Take the money and run</title>
   <style>
-    body{
-      text-align: center;
-    }
-  </style>
+  body{
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <h1>Take the Money and Run</h1>
@@ -58,8 +58,143 @@
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
 
-
   <script>
+
+    // variable to count the total number of click
+    var totalClick = 0;
+
+    //if total click is more than 5, alert the user
+    function checkClickCount (totalClick) {
+      if (totalClick >= 5) {
+        alert("You have clicked 5 times!");
+        resetTotalClick();
+      }
+    }
+
+    //reset the number of count after totalClick = 5
+    function resetTotalClick () {
+      totalClick = 0;
+    }
+
+    //randomise the hex color code
+    function getRandomColor() {
+      var letters = '3456789ABCD';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 6)];
+      }
+      return color;
+    }
+
+    //set default color
+    var defaultColor = "#" + "FFFFFF";
+
+    //reset bg color function
+    function resetBgColor() {
+      document.body.style.backgroundColor = defaultColor;
+    }
+
+    //apply random color bg for 5 sec
+    var randomBgColor = function() {
+      document.body.style.backgroundColor = getRandomColor();
+      setTimeout(resetBgColor, 5000);
+    }
+
+    //setting to change bg color (esp first para)
+    document.querySelector("#first_paragraph, #second_paragraph, #first_chorus, #third_paragraph, #fourth_paragraph, #second_chorus").addEventListener('click', function() {
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
+
+    //settings to change on click for 2nd para
+    var disSecPar = function() {
+      document.getElementsByClassName('second_paragraph')[0].style.display = "inline";
+    }
+    document.getElementById("second_paragraph").addEventListener('click', function(){
+      disSecPar();
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
+
+    //settings to change on click on 1st chrous
+    var disFirstChorus = function () {
+      document.getElementsByClassName('first_chorus')[0].style.display = "inline";
+    }
+    document.getElementById("first_chorus").addEventListener('click', function(){
+      disFirstChorus();
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
+
+    //settings to change on click on 3rd para
+    var thirdPs = document.querySelectorAll(".third_paragraph");
+
+    function setThirdInline() {
+      for (var i = 0; i < thirdPs.length; i++) {
+        var singleThirdP = thirdPs[i];
+        singleThirdP.style.display = "inline";
+      }
+    };
+    document.getElementById("third_paragraph").addEventListener('click', function(){
+      setThirdInline();
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
+    
+
+    //settings to change on click on 4th para
+    var fourthPs = document.querySelectorAll(".fourth_paragraph");
+
+    function setFourthInline() {
+      for (var i = 0; i < fourthPs.length; i++) {
+        var singleFourthP = fourthPs[i];
+        singleFourthP.style.display="inline";
+      }
+    };
+    document.getElementById("fourth_paragraph").addEventListener('click', function(){
+      setFourthInline();
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
+
+    //display 2nd chorus line by line
+    var secChorus = document.querySelectorAll(".second_chorus");
+
+    n = 0;
+    newLine = false;
+
+    function addNewLine(){
+      for(var i = 0; i <secChorus.length;i++){
+        secChorus[i].innerHTML = secChorus[i].innerHTML + "<br>";
+      }
+    }
+
+    function displaySecChorus() {
+
+
+      if (newLine === false){
+        addNewLine();
+        newLine = true;
+      }
+
+      if (n < secChorus.length) {
+        secChorus[n].style.display = "inline";
+        n++;
+      }
+    };
+
+    //settings to change on click on 2nd chorus
+    document.getElementById("second_chorus").addEventListener('click', function(){
+      displaySecChorus();
+      randomBgColor();
+      totalClick += 1;
+      checkClickCount(totalClick);
+    });
 
   </script>
 </body>
