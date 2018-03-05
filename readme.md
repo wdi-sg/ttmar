@@ -10,3 +10,12 @@
 
 ## BONUS!
 - When the last link is clicked, one line of the chorus should be displayed. Each subsequent click should display an additional line of the chorus until all 6 lines are displayed.
+
+## BONUS 2
+- Keep count of the total number of clicks, and alert the user when they get to five clicks.
+
+## BONUS 3
+- For each click, the background color changes to a random color.
+
+## BONUS 4
+- For each click the background color changes to a random color, then changes back after 5 seconds.
