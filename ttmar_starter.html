@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
   <meta charset="utf-8">
   <title>Take the money and run</title>
   <style>
-    body{
-      text-align: center;
-    }
-  </style>
+  body{
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <h1>Take the Money and Run</h1>
@@ -60,7 +60,104 @@
 
 
   <script>
+  // Q1
+  function getRandomColor() {
+    var letters = '789ABCD';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.round(Math.random() * 6)];
+    }
+    return color;
+  }
+  function changeColor() {
+    document.body.style.backgroundColor = getRandomColor();
+    changeBack();
+  }
+  var firstLink = document.getElementById("first_paragraph");
+  firstLink.addEventListener('click', changeColor);
 
-  </script>
+// Q2
+function displaySecond() {
+  document.getElementsByClassName("second_paragraph")[0].style.display = "inline";
+};
+
+document.getElementById("second_paragraph").addEventListener('click', displaySecond);
+document.getElementById("second_paragraph").addEventListener('click', changeColor);
+
+function displayChorus() {
+  document.getElementsByClassName("first_chorus")[0].style.display = "inline";
+};
+
+document.getElementById("first_chorus").addEventListener('click', displayChorus);
+document.getElementById("first_chorus").addEventListener('click', changeColor);
+
+var thirdPara = document.getElementsByClassName("third_paragraph");
+
+function displayThird() {
+
+  for (var i = 0; i < thirdPara.length; i++) {
+    thirdPara[i].style.display = "inline";
+  }
+};
+
+document.getElementById("third_paragraph").addEventListener('click', displayThird);
+document.getElementById("third_paragraph").addEventListener('click', changeColor);
+
+var fourthPara = document.getElementsByClassName("fourth_paragraph");
+
+function displayFourth() {
+  for (var i = 0; i < fourthPara.length; i++) {
+    fourthPara[i].style.display = "inline";
+  }
+};
+
+document.getElementById("fourth_paragraph").addEventListener('click', displayFourth);
+document.getElementById("fourth_paragraph").addEventListener('click', changeColor);
+
+var secondChorus = document.getElementsByClassName("second_chorus");
+n = 0;
+newLined = false;
+function addNewLine(){
+  for(var i = 0; i <secondChorus.length;i++){
+    secondChorus[i].innerHTML = secondChorus[i].innerHTML + "<br>";
+    }
+
+}
+
+function displaySecondChor() {
+
+  if (newLined == false){
+  addNewLine();
+  newLined = true;
+  }
+  
+  if (n < secondChorus.length) {
+    secondChorus[n].style.display = "inline";
+    n++;
+  }
+};
+
+document.getElementById("second_chorus").addEventListener('click', displaySecondChor);
+document.getElementById("second_chorus").addEventListener('click', changeColor);
+document.getElementById("second_chorus").addEventListener('click', clickCount)
+
+click = 0
+function clickCount() {
+  if (click == 5) {
+    alert("You have already clicked " + click + " times!");
+  }
+  click ++;
+};
+
+function defaultColor() {
+  var hash = '#'
+  var white = 'FFFFFF'
+  hash += white
+  return white;
+}
+
+var changeBack = setTimeout(defaultColor, 5000);
+
+</script>
 </body>
 </html>
