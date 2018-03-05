@@ -58,9 +58,92 @@
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
 
+  <input class="input-box" type="text" />
 
   <script>
+  // random whole number function - between start and end range
+  const getNumber = (start, end) => {
+    return (Math.floor(Math.random() * (end + 1 - start)) + start); 
+  };
+  document.addEventListener('DOMContentLoaded', function() {
+    //code and events go here
 
-  </script>
+    const changeColor = function(event){
+      // console.log(document.getElementsByTagName("body")[0]);
+      console.dir(document.getElementsByTagName("body")[0]);
+      // document.getElementsByTagName("body")[0].setAttribute("background-color", "black");
+      document.getElementsByTagName("body")[0].style.backgroundColor = "red";
+
+    };
+
+    let firstLink = document.getElementById("first_paragraph").addEventListener("click", changeColor);
+
+
+
+    // const changeDisplay = function(event){
+    //   console.log(this.id);
+
+    //   // let currentMode = document.getElementsByClassName("second_paragraph")[0].style.display;
+
+    //   if (document.getElementsByClassName("second_paragraph")[0].style.display === "none") {
+    //     document.getElementsByClassName("second_paragraph")[0].style.display = "block";
+    //   } else {
+    //     document.getElementsByClassName("second_paragraph")[0].style.display = "none";
+    //   } 
+
+    // }
+
+    // let secondLink = document.getElementById("second_paragraph").addEventListener("click", changeDisplay);
+
+    function printAllPara() {
+        var idOfClick = this.id;
+        console.log(idOfClick);
+        let elems = document.querySelectorAll("." + idOfClick);
+
+        for (i=0; i <elems.length; i++) {
+          elems[i].style.display = "block";
+        }        
+      }
+
+     var allParaChange = document.querySelectorAll("#second_paragraph, #first_chorus, #third_paragraph, #fourth_paragraph");
+     for (i = 0; i < allParaChange.length; i++) {
+      allParaChange[i].addEventListener("click", printAllPara);
+     }
+  });
+
+  // LAST CLICK 6 TIMES
+  const printOneLine = function(){
+    let elemId = this.id;
+    let elems = document.querySelectorAll("." + elemId);
+    for (i=0; i < elems.length; i++) {
+      if (elems[i].style.display === "none") {
+        elems[i].style.display = "block";
+        break;
+      }
+    }
+  }
+
+  var lastLink = document.querySelectorAll("#second_chorus");
+  lastLink[0].addEventListener("click", printOneLine);
+
+  // change color on each click
+
+  const changeRandom = function(){
+    color = ["blue", "black", "red", "green", "yellow", "black", "white"];
+    let colorCode = getNumber(0, color.length);
+    let originalColor = body[0].style.backgroundColor;
+    body[0].style.backgroundColor = color[colorCode];
+    setTimeout(
+      function(){body[0].style.backgroundColor=originalColor;},
+       5000)
+  }
+
+
+
+  var body = document.querySelectorAll("body");
+  // console.log(body[0]);
+  body[0].addEventListener("click", changeRandom);
+
+</script>
 </body>
 </html>
