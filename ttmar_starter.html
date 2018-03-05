@@ -79,27 +79,15 @@
         clickIncrement();
       });
 
-      // e.target refers to the link that was pressed. parentNode refers to the p element containing it.
-      // nextElementSibling refers to the next element sitting directly below it in the HTMl. These 2 links
-      // have event listeners declared in a similar way because the stuff after them are contained in a
-      // single div. Convenient.
-      [links[1], links[2]].forEach(l => {
-        l.addEventListener('click', e => {
-          clickIncrement();
-          changeBackgroundToRandomColour();
-          e.target.parentNode.nextElementSibling.style.display = 'block';
-        })
-      });
-
-      // Less convenient are these next 2, but we can use the first word of the id of the links to
+      // Less convenient are these next 2, but we can use the id of the links to
       // query for the class that we want, then loop through the array of elements returned and change
       // their display style to block.
-      [links[3], links[4]].forEach((l) => {
+      [links[1], links[2], links[3], links[4]].forEach((l) => {
         l.addEventListener('click', (e) => {
           clickIncrement();
           changeBackgroundToRandomColour();
-          let prefix = e.target.getAttribute('id').split('_')[0];
-          document.querySelectorAll('.' + prefix + '_paragraph').forEach((elem) => {
+          let prefix = e.target.getAttribute('id');
+          document.querySelectorAll('.' + prefix).forEach((elem) => {
             elem.style.display = 'block';
           })
         })
