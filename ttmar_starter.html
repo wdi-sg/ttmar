@@ -9,8 +9,97 @@
       text-align: center;
     }
   </style>
+  <script>
+    let __clickCount = 0;
+    let __prevColour;
+    let __colourResetTimer = null;
+
+    function resetBackgroundColour () {
+      document.querySelector('body').style.backgroundColor = __prevColour;
+      __colourResetTimer = null
+    }
+
+    function changeBackgroundToRandomColour () {
+      __prevColour = document.querySelector('body').style.backgroundColor;
+      let hex = '0123456789ABCDEF';
+      let colour = '#';
+      for (let i = 0; i < 6; i++) {
+        colour += hex[Math.floor(Math.random() * 16)];
+      };
+      document.querySelector('body').style.backgroundColor = colour;
+      if (__colourResetTimer != null) {
+        clearTimeout(__colourResetTimer);
+      }
+      __colourResetTimer = setTimeout(resetBackgroundColour, 5000);
+      
+    }
+    
+    function clickIncrement () {
+      __clickCount++;
+      if (__clickCount == 5) {
+        alert('Five clicks reached');
+      }
+    }
+
+    function revealElement () {
+      let name = document.getElementById('elem-to-reveal').value;
+      let elemList = document.querySelectorAll('.' + name);
+      if (elemList.length > 0) {
+        elemList.forEach(elem => {elem.style.display = 'block'})
+      } else {
+        alert("You need to give a valid class name!");
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+      let links = document.querySelectorAll('a');
+      
+      links[0].addEventListener('click', () => {
+        document.querySelector('body').style.backgroundColor = 'green';
+        clickIncrement();
+      });
+
+      [links[1], links[2]].forEach(l => {
+        l.addEventListener('click', e => {
+          clickIncrement();
+          changeBackgroundToRandomColour();
+          e.target.parentNode.nextElementSibling.style.display = 'block';
+        })
+      });
+
+      [links[3], links[4]].forEach((l) => {
+        l.addEventListener('click', (e) => {
+          clickIncrement();
+          changeBackgroundToRandomColour();
+          let prefix = e.target.getAttribute('id').split('_')[0];
+          document.querySelectorAll('.' + prefix + '_paragraph').forEach((elem) => {
+            elem.style.display = 'block';
+          })
+        })
+      });
+
+      links[5].addEventListener('click', e => {
+        clickIncrement();
+        changeBackgroundToRandomColour();
+        let elem = e.target.parentNode.nextElementSibling;
+        while (elem.getAttribute('class') == 'second_chorus') {
+          if (elem.style.display == 'none') {
+            elem.style.display = 'block';
+            break;
+          };
+          elem = elem.nextElementSibling;
+        };
+      });
+
+      document.getElementById('reveal-button').addEventListener('click', revealElement);
+    });
+    
+
+  </script>
 </head>
 <body>
+  <input id="elem-to-reveal" type="text" name="elem-to-reveal" /><button id="reveal-button" name="Reveal">Reveal</button>
   <h1>Take the Money and Run</h1>
   <p><a id="first_paragraph" href="#">Click me first!</a></p>
   <div class="first_paragraph" style="color:white">
