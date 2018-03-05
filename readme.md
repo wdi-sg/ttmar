@@ -8,7 +8,8 @@
 
 - When the second through fifth links are clicked, the relevant part of the song should be displayed.
 
-> Remember to use `document.addEventListener('DOMContentLoaded', doSomething);` or you might have a bad time.
+> Remember to use the `DOMContentLoaded` event:
+> `document.addEventListener('DOMContentLoaded', doSomething);` or you might have a bad time.
 
 ## BONUS!
 - When the last link is clicked, one line of the chorus should be displayed. Each subsequent click should display an additional line of the chorus until all 6 lines are displayed.
