@@ -58,13 +58,19 @@
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
 
-  <input class="input-box" type="text" />
+  <input id="input-box" class="input-box" type="text" />
+  <button id="reveal-button">Submit</button>
 
   <script>
   // random whole number function - between start and end range
   const getNumber = (start, end) => {
     return (Math.floor(Math.random() * (end + 1 - start)) + start); 
   };
+
+  // global variables
+  let __prevCol;
+  let __timerIsOn = false;
+
   document.addEventListener('DOMContentLoaded', function() {
     //code and events go here
 
@@ -77,23 +83,6 @@
     };
 
     let firstLink = document.getElementById("first_paragraph").addEventListener("click", changeColor);
-
-
-
-    // const changeDisplay = function(event){
-    //   console.log(this.id);
-
-    //   // let currentMode = document.getElementsByClassName("second_paragraph")[0].style.display;
-
-    //   if (document.getElementsByClassName("second_paragraph")[0].style.display === "none") {
-    //     document.getElementsByClassName("second_paragraph")[0].style.display = "block";
-    //   } else {
-    //     document.getElementsByClassName("second_paragraph")[0].style.display = "none";
-    //   } 
-
-    // }
-
-    // let secondLink = document.getElementById("second_paragraph").addEventListener("click", changeDisplay);
 
     function printAllPara() {
         var idOfClick = this.id;
@@ -109,7 +98,6 @@
      for (i = 0; i < allParaChange.length; i++) {
       allParaChange[i].addEventListener("click", printAllPara);
      }
-  });
 
   // LAST CLICK 6 TIMES
   const printOneLine = function(){
@@ -122,27 +110,58 @@
       }
     }
   }
-
   var lastLink = document.querySelectorAll("#second_chorus");
   lastLink[0].addEventListener("click", printOneLine);
 
   // change color on each click
 
-  const changeRandom = function(){
-    color = ["blue", "black", "red", "green", "yellow", "black", "white"];
-    let colorCode = getNumber(0, color.length);
-    let originalColor = body[0].style.backgroundColor;
-    body[0].style.backgroundColor = color[colorCode];
-    setTimeout(
-      function(){body[0].style.backgroundColor=originalColor;},
-       5000)
+  const changeBackgroundColor = function(){
+    body[0].style.backgroundColor=__prevCol;
+    __timerIsOn = false;
   }
 
+  const changeRandom = function(){
+
+    // random color generator using hex
+    let hexCode = "0123456789ABCDEF";
+    let color = "#";
+    for(i = 0; i < 6; i++) {
+      color += hexCode[Math.floor(Math.random()*16)];
+    }
+
+    __prevCol = body[0].style.backgroundColor;
+    body[0].style.backgroundColor = color;
+    if (__timerIsOn) {
+      clearTimeout(__timerIsOn);
+    }
+    __timerIsOn = setTimeout(changeBackgroundColor, 5000);
+  }
 
 
   var body = document.querySelectorAll("body");
   // console.log(body[0]);
   body[0].addEventListener("click", changeRandom);
+
+
+  // input field
+  const checkInput = function(){
+    let input = document.getElementById("input-box").value;
+    // console.log(input);
+    let queryInput = document.querySelectorAll("." + input);
+    console.log(queryInput);
+    if (queryInput.length > 0) {
+      // positive results
+      for (i=0; i < queryInput.length; i++) {
+        queryInput[i].style.display = "block";
+      }
+    }
+  }
+  document.getElementById('reveal-button').addEventListener("click", checkInput);
+
+
+  });
+
+
 
 </script>
 </body>
