@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
   <meta charset="utf-8">
   <title>Take the money and run</title>
   <style>
-    body{
-      text-align: center;
-    }
-  </style>
+  body{
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <h1>Take the Money and Run</h1>
+  <input id="user-input"/>
+  <button onclick="searchElements()">Submit</button>
+
+
   <p><a id="first_paragraph" href="#">Click me first!</a></p>
   <div class="first_paragraph" style="color:white">
     This here's a story about Billy Joe and Bobbie Sue<br>
@@ -60,6 +64,113 @@
 
 
   <script>
+
+    var noOfClicks = 0;
+
+    var firstParagraph = document.getElementById("first_paragraph");
+
+    firstParagraph.addEventListener("click", function (){
+      var color = '#'; 
+      var letters = ['000000','FF0000','00FF00','0000FF','FFFF00','00FFFF','FF00FF','C0C0C0']; 
+      color += letters[Math.floor(Math.random() * letters.length)];
+      document.querySelector("body").style.backgroundColor = color; 
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+
+    var secondParagraph = document.getElementById("second_paragraph");
+
+    secondParagraph.addEventListener("click", function (){
+      for(var i = 0 ; i < document.getElementsByClassName("second_paragraph").length ; i++ ){
+        document.getElementsByClassName("second_paragraph")[i].style.display = "block";
+      }
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+    var thirdParagraph = document.getElementById("first_chorus");
+
+    thirdParagraph.addEventListener("click", function (){
+      for(var i = 0 ; i < document.getElementsByClassName("first_chorus").length ; i++ ){
+        document.getElementsByClassName("first_chorus")[i].style.display = "block";
+      }
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+
+    var fourthParagraph = document.getElementById("third_paragraph");
+
+    fourthParagraph.addEventListener("click", function (){
+      for(var i = 0 ; i < document.getElementsByClassName("third_paragraph").length ; i++ ){
+        document.getElementsByClassName("third_paragraph")[i].style.display = "block";
+      }
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+
+    var fifthParagraph = document.getElementById("fourth_paragraph");
+
+    fifthParagraph.addEventListener("click", function (){
+      for(var i = 0 ; i < document.getElementsByClassName("fourth_paragraph").length ; i++ ){
+        document.getElementsByClassName("fourth_paragraph")[i].style.display = "block";
+      }
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+
+    var sixthParagraph = document.getElementById("second_chorus");
+
+    var i = 0
+    sixthParagraph.addEventListener("click", function (){
+      document.getElementsByClassName("second_chorus")[i].style.display = "block";
+      i++
+      noOfClicks++
+      if( noOfClicks % 5 === 0){
+        alert("You clicked " + noOfClicks + " times!")
+      }
+    })
+
+    var resetColor = function(){
+      document.querySelector("body").style.backgroundColor = "white";
+    };
+
+    var fiveSecondInterval = setInterval(resetColor, 5000);
+
+
+
+    var searchElements = function(){
+      document.getElementById("user-input").addEventListener('change',function(event){
+        var input = document.getElementById("user-input");
+        alert(document.getElementById(input));
+      });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </script>
 </body>
