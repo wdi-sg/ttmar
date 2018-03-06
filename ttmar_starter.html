@@ -15,7 +15,6 @@
   <input id="user-input"/>
   <button onclick="searchElements()">Submit</button>
 
-
   <p><a id="first_paragraph" href="#">Click me first!</a></p>
   <div class="first_paragraph" style="color:white">
     This here's a story about Billy Joe and Bobbie Sue<br>
@@ -62,7 +61,6 @@
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
 
-
   <script>
 
     var noOfClicks = 0;
@@ -79,7 +77,6 @@
         alert("You clicked " + noOfClicks + " times!")
       }
     })
-
 
     var secondParagraph = document.getElementById("second_paragraph");
 
@@ -131,7 +128,6 @@
       }
     })
 
-
     var sixthParagraph = document.getElementById("second_chorus");
 
     var i = 0
@@ -149,8 +145,6 @@
     };
 
     var fiveSecondInterval = setInterval(resetColor, 5000);
-
-
 
     var searchElements = function(){
       document.getElementById("user-input").addEventListener('change',function(event){
