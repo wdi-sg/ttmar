@@ -21,7 +21,7 @@
   </div>
 
   <p><a id="second_paragraph" href="#">Click me Second!</a></p>
-  <div class="second_paragraph" style="display:none">
+  <div class="second_paragraph" style="display:none;">
     They headed down to, ooh, old El Paso<br>
     That's where they ran into a great big hassle<br>
     Billy Joe shot a man while robbing his castle<br>
@@ -60,6 +60,108 @@
 
 
   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraOne = document.querySelector("#first_paragraph");
+    
+      function changeBackground() {
+      document.body.style.backgroundColor = "salmon";
+      }
+
+      for (i=0; i<2; i++) {
+      paraOne.addEventListener("click", changeBackground);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraTwo = document.querySelector("#second_paragraph");
+      var paraTextTwo = document.querySelector(".second_paragraph");
+    
+      function secondAppearText() {
+      paraTextTwo.style.display = "block";
+      }
+
+      for (i=0; i<2; i++) {
+      paraTwo.addEventListener("click", secondAppearText);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraThree = document.querySelector("#first_chorus");
+      var paraTextThree = document.querySelector(".first_chorus");
+    
+      function thirdAppearText() {
+      paraTextThree.style.display = "block";
+      }
+
+      for (i=0; i<2; i++) {
+      paraThree.addEventListener("click", thirdAppearText);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraFour = document.querySelector("#third_paragraph");
+
+      var paraTextFourLOne = document.querySelectorAll(".third_paragraph")[0];
+      var paraTextFourLTwo = document.querySelectorAll(".third_paragraph")[1];
+      var paraTextFourLThree = document.querySelectorAll(".third_paragraph")[2];
+      var paraTextFourLFour = document.querySelectorAll(".third_paragraph")[3];
+    
+      function fourthAppearText() {
+          paraTextFourLOne.style.display = "block";
+          paraTextFourLTwo.style.display = "block";
+          paraTextFourLThree.style.display = "block";
+          paraTextFourLFour.style.display = "block";
+      }
+
+      for (i=0; i<2; i++) {
+      paraFour.addEventListener("click", fourthAppearText);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraFive = document.querySelector("#fourth_paragraph");
+
+      var paraTextFiveLOne = document.querySelectorAll(".fourth_paragraph")[0];
+      var paraTextFiveLTwo = document.querySelectorAll(".fourth_paragraph")[1];
+      var paraTextFiveLThree = document.querySelectorAll(".fourth_paragraph")[2];
+      var paraTextFiveLFour = document.querySelectorAll(".fourth_paragraph")[3];
+      var paraTextFiveLFive = document.querySelectorAll(".fourth_paragraph")[4];
+      var paraTextFiveLSix = document.querySelectorAll(".fourth_paragraph")[5];
+    
+      function fifthAppearText() {
+          paraTextFiveLOne.style.display = "block";
+          paraTextFiveLTwo.style.display = "block";
+          paraTextFiveLThree.style.display = "block";
+          paraTextFiveLFour.style.display = "block";
+          paraTextFiveLFive.style.display = "block";
+          paraTextFiveLSix.style.display = "block";
+      }
+
+      for (i=0; i<2; i++) {
+      paraFive.addEventListener("click", fifthAppearText);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      var paraSix = document.querySelector("#second_chorus");
+      var paraTextSix = document.querySelectorAll(".second_chorus");
+
+      function SixthAppearText() {
+        for (i=0; i<paraTextSix.length; i++); {
+          paraTextSix[i].style.display = "block";
+        }
+      }
+
+      for (i=0; i<6; i++) {
+      paraSix.addEventListener("click", SixthAppearText);
+      }
+    });
 
   </script>
 </body>
