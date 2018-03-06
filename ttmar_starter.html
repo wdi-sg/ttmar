@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
   <meta charset="utf-8">
   <title>Take the money and run</title>
   <style>
-    body{
-      text-align: center;
-    }
-  </style>
+  body{
+    text-align: center;
+  }
+</style>
 </head>
 <body>
   <h1>Take the Money and Run</h1>
@@ -60,7 +60,108 @@
 
 
   <script>
+    document.getElementById('first_paragraph').addEventListener("click", function(){
+      document.querySelector('body').style.backgroundColor = 'green';
+    }
+    )
 
-  </script>
+    var lyrics = ['first_paragraph','second_paragraph','third_paragraph','fourth_paragraph','second_chorus','first_chorus'];
+
+    var chorusCounter = 0;
+    var clickCounter = 0;
+
+    timeout = setTimeout( function(){
+      document.querySelector('body').style.backgroundColor = "";
+    }, 5000
+    );
+    function changeToBlock(){
+      { 
+       //console.log(lyrics);
+      // console.log(document.querySelectorAll('.'+lyrics[i]).length);
+       //console.log(document.querySelectorAll('.'+lyrics[i]).length);
+       //console.log(document.querySelectorAll('.'+ this.id))
+       if(this.id == "second_chorus" && document.querySelectorAll('.'+ this.id).length > chorusCounter ){
+         chorusCounter++;
+
+         document.querySelectorAll('.'+ this.id)[chorusCounter].style.display = "block";}
+         
+         else{
+
+           for(j = 0 ; j < document.querySelectorAll('.'+ this.id).length; j++){
+             for(i = 0; i < document.querySelectorAll('.'+ this.id).length; i++)
+             { 
+               document.querySelectorAll('.'+ this.id)[i].style.display = "block";}
+             }
+           }
+
+         }
+       }
+
+       for (i =0; i < lyrics.length; i++){
+//console.log(document.querySelector("#"+lyrics[i]));
+document.querySelector("#"+lyrics[i]).addEventListener("click",changeToBlock);
+}
+
+
+allA = document.querySelectorAll('a');
+
+
+
+for(i = 0; i < allA.length; i++){
+  
+  allA[i].addEventListener("click", function(){
+    var oldColor = document.querySelector('body').style.backgroundColor;
+    clearTimeout(timeout);
+
+    timeout = setTimeout( function(){
+      document.querySelector('body').style.backgroundColor = oldColor;
+    }, 5000
+
+    );
+    document.querySelector('body').style.backgroundColor = "rgb(" + Math.ceil(Math.random()*255) + ","+Math.ceil(Math.random()*255)+ ","+  Math.ceil(Math.random()*255)+")";
+
+    clickCounter++;
+    if(clickCounter == 5 ){
+      alert("You have hit 5 clicks!");
+    }
+  }
+  )
+
+
+
+
+}
+
+
+
+var node = document.createElement("p"); 
+var inputnode = document.createElement("input");  
+var buttonnode = document.createElement("button");
+buttonnode.appendChild(document.createTextNode("Check ID and trigger"));                            
+inputnode.setAttribute("type","text");
+inputnode.setAttribute("ID","check");
+node.appendChild(inputnode);
+node.appendChild(buttonnode);  
+buttonnode.addEventListener("click", function() {
+
+  var event = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+
+  if(document.querySelector("#"+document.getElementById("check").value) == null){
+    alert("The ID does not exist: " + document.getElementById("check").value);
+
+  }
+  else{
+    document.querySelector("#"+document.getElementById("check").value).dispatchEvent(event);
+  }
+}
+)
+document.querySelector("h1").appendChild(node);                         
+
+</script>
+
 </body>
 </html>
