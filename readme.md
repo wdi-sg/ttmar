@@ -21,8 +21,6 @@
 ## BONUS 3
 - Keep count of the total number of clicks, and alert the user when they get to five clicks.
 
-
-
 ## BONUS 4
 - For each click the background color changes to a random color, then changes back after 5 seconds.
 
