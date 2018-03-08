@@ -58,44 +58,6 @@
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
   <p class="second_chorus" style="display:none">Go on take the money and run</p>
 
-
-  <script>
-    //q1
-    document.getElementById("first_paragraph").addEventListener("click", function() {
-      document.querySelector(".first_paragraph").style["background-color"] = "blue";
-    })
-
-    //q2
-    var secondToFifth = [ "second_paragraph", "first_chorus", "third_paragraph", "fourth_paragraph" ]
-
-    secondToFifth.forEach(function(element) {
-      document.getElementById(element).addEventListener("click", function() {
-        document.querySelector("." + element).style.display = "block";
-      })
-    })
-
-    //q3, q4
-    var linkSixCounter = 1;
-    var secondChorusArr = document.querySelectorAll(".second_chorus");
-    function resetColor() {
-      secondChorusArr[linkSixCounter-1].style["background-color"] = "none";
-    }
-    document.getElementById("second_chorus").addEventListener("click", function() {
-      secondChorusArr[linkSixCounter-1].style.display = "block";
-      secondChorusArr[linkSixCounter-1].style["background-color"] = "green";
-      setTimeout(resetColor, 1000);
-      if (linkSixCounter <= 6) {
-        secondChorusArr[linkSixCounter-1].innerHTML += ' x' + linkSixCounter;
-        linkSixCounter++;
-      }
-    })
-
-    //q4
-
-
-
-
-
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
