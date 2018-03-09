@@ -93,11 +93,8 @@
         })
       });
 
-      // When the last link is clicked, we start a loop from the node below its immediate parent.
-      // Each loop checks whether that node has a class of 'second_chorus' and a display style of
-      // none. If so, we change its display style to block and then break the loop. Note that the
-      // loop also breaks once the next node is no longer of class 'second_chorus' so this will
-      // not in fact loop through all the elements in the document.
+      // Get the first element of class second_chorus and style display:none and change its
+      // display to 'block'
       links[5].addEventListener('click', e => {
         clickIncrement();
         changeBackgroundToRandomColour();
