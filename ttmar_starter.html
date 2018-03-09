@@ -101,14 +101,10 @@
       links[5].addEventListener('click', e => {
         clickIncrement();
         changeBackgroundToRandomColour();
-        let elem = e.target.parentNode.nextElementSibling;
-        while (elem.getAttribute('class') == 'second_chorus') {
-          if (elem.style.display == 'none') {
-            elem.style.display = 'block';
-            break;
-          };
-          elem = elem.nextElementSibling;
-        };
+        let elem = document.querySelector('p[class="second_chorus"][style="display:none"]');
+        if (elem !== null) {
+          elem.style.display = 'block';
+        }
       });
 
       document.getElementById('reveal-button').addEventListener('click', revealElement);
