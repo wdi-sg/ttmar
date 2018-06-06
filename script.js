@@ -1,5 +1,16 @@
 document.addEventListener('DOMContentLoaded',function(){
 
+    var everywhere = document.body;
+    var clickCounter = function() {
+        everywhere.addEventListener('click', function(){
+            var clicks = event.detail;
+            if (clicks == 5) {
+                alert("You have clicked 5 times!");
+            }
+        })
+    };
+    clickCounter();
+
     //Set colours to use as background
     var colors = ["red", "pink", "orange", "brown", "grey", "green", "cyan", "violet", "tomato"];
 
@@ -45,4 +56,4 @@ document.addEventListener('DOMContentLoaded',function(){
         fourthParagraph.style.backgroundColor = randomColors();
     });
 
-})
+});
