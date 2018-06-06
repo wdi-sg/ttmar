@@ -74,6 +74,7 @@ createInput();
 //
 //   }
 // }
+// looked up contains() but lost at how to compare it
 //check if element exists and if it does, alert(yes), else alert(no)
 document.body.style.fontFamily = "sans-serif";
 //make it look more readable i guess
