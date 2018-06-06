@@ -1,7 +1,7 @@
 //the studip guy's guide
 
 //first step in manipulating DOM manipulation: DOMContentLoaded or window.onload:
-window.onload = function(){
+//window.onload = function(){
 
 
 	var body = document.querySelector('body');
@@ -15,23 +15,47 @@ window.onload = function(){
 	var sixthLinkId = document.querySelector('#second_chorus');
 	//create variables for each <a>tag. selecting them via their Ids.
 	
-	var firstColor = function(){
-		body.style.background = 'pink';
-	}
-	//a function to change backgroundcolor of body tag
+	// var firstColor = function(){
+	// 	body.style.background = getRandomColor();
+	// }
+	// //a function to change backgroundcolor of body tag
 
-	var changeColor = function(id) {
-		id.addEventListener('click', firstColor);
-	}
+	// // var changeColor = function(id) {
+	// // 	id.addEventListener('click', firstColor);
+	// }
 	//A function which listens for a click. argument required
 	//Upon which the firstColor function is invoked
 
-	// var changeColor = function() {
-	// 	firstLinkId.addEventListener('click', function(){
-	// 		body.style.background = 'pink';
-	// 	})
-	// }
-	// Alternate solution
+	function getRandomColor() {
+ 		var letters = '0123456789ABCDEF';
+ 		//a string of numbers 1 -9 and A-F
+ 		
+ 		var color = '#';
+ 		//# added before adding hexadecimal color code
+
+ 		for (var i = 0; i < 6; i++) {
+   			color += letters[Math.floor(Math.random() * 16)];
+   			//returns # + 6 random alphabets and numbers
+ 		}
+ 		return color;
+	}
+
+	var changeColor = function() {
+		body.addEventListener('click', function(){
+		//A function which listens for a click in the body tag	
+			
+			body.style.background = getRandomColor();
+			//the click invokes a change in color
+
+			setTimeout(function() {
+				body.style.backgroundColor = "white";
+				}, 5000)
+				//background changes to white after 5 seconds
+			})
+		}
+	
+	//Alternate solution
+	//A function which listens for a click. 
 
 	changeColor(firstLinkId);
 
@@ -87,14 +111,17 @@ window.onload = function(){
 
 	 reveal5Para();
 
-	var i = 0
+	var index = 0
+	//i is defined outside as 0
 	var reveal6Para = function() {
 	 	sixthLinkId.addEventListener('click', function(){
 	 	//add a click listener to the <a> tag
 	 		
 	 		var para6 = document.querySelectorAll('.second_chorus')
-	 		para6[i].style.display = 'block';
-	 		i += 1
+	 		para6[index].style.display = 'block';
+	 		// para[0] will be changed to block first
+	 		index += 1
+	 		// index = 1 outside the loop, so index 1 will be revealed instead of 0  	 		
 		
 	 		})
 	 	}
@@ -102,8 +129,28 @@ window.onload = function(){
 
 	 reveal6Para();
 
+	var counter = 0;
+	//counter set as global variable
 
-}
+	 clickCounter = function () {
+	 	document.addEventListener('click', function() {
+	 		counter += 1;
+	 		console.log(counter);
+
+	 		if (counter == 5) {
+	 			alert('How many times you wanna click?');
+	 			console.log(counter)
+	 		}
+
+	 		if (counter > 5) {
+
+	 			counter = 0
+	 		}
+	 	})
+	 }
+
+	 clickCounter();
+//}
 
 
 
