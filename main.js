@@ -1,7 +1,7 @@
 //the studip guy's guide
 
 //first step in manipulating DOM manipulation: DOMContentLoaded or window.onload:
-//window.onload = function(){
+window.onload = function(){
 
 
 	var body = document.querySelector('body');
@@ -20,10 +20,10 @@
 	}
 	//a function to change backgroundcolor of body tag
 
-	var changeColor = function() {
-		firstLinkId.addEventListener('click', firstColor);
+	var changeColor = function(id) {
+		id.addEventListener('click', firstColor);
 	}
-	//A function which listens for a click on the first link.
+	//A function which listens for a click. argument required
 	//Upon which the firstColor function is invoked
 
 	// var changeColor = function() {
@@ -33,7 +33,7 @@
 	// }
 	// Alternate solution
 
-	changeColor();
+	changeColor(firstLinkId);
 
 	var reveal2Para = function() {
 	 	secondLinkId.addEventListener('click', function(){
@@ -87,10 +87,23 @@
 
 	 reveal5Para();
 
+	var i = 0
+	var reveal6Para = function() {
+	 	sixthLinkId.addEventListener('click', function(){
+	 	//add a click listener to the <a> tag
+	 		
+	 		var para6 = document.querySelectorAll('.second_chorus')
+	 		para6[i].style.display = 'block';
+	 		i += 1
+		
+	 		})
+	 	}
+	 
+
+	 reveal6Para();
 
 
-
-
+}
 
 
 
