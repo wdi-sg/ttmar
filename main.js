@@ -1,4 +1,4 @@
-//the studip guy's guide to DOM 
+//the studip guy's guide
 
 //first step in manipulating DOM manipulation: DOMContentLoaded or window.onload:
 //window.onload = function(){
@@ -34,7 +34,69 @@
 	// Alternate solution
 
 	changeColor();
-	//- When the first link on the page is clicked, the background color changes to pink
+
+	var reveal2Para = function() {
+	 	secondLinkId.addEventListener('click', function(){
+	 	//add a click listener to the <a> tag
+
+	 		document.querySelector('.second_paragraph').style.display = 'inline';
+	 		//when clicked lyrics are revealed. Find it by its class and change its display to inline/block
+	 	})
+	 }
+
+	 reveal2Para();
+
+	 var reveal3Para = function() {
+	 	thirdLinkId.addEventListener('click', function(){
+	 	//add a click listener to the <a> tag
+
+	 		document.querySelector('.first_chorus').style.display = 'inline';
+	 		//when clicked lyrics are revealed. Find it by its class and change its display to inline/block/whatever else
+	 	})
+	 }
+
+	 reveal3Para();
+
+	var reveal4Para = function() {
+	 	fourthLinkId.addEventListener('click', function(){
+	 	//add a click listener to the <a> tag
+
+	 		var para4 = document.querySelectorAll('.third_paragraph')
+	 		for (var i = 0; i < para4.length; i++) {
+	 			para4[i].style.display = 'block';
+	 			//when clicked lyrics are revealed. Find it by its class and change its display to inline/block.
+	 			//querySelectorAll and For loop required because each line is a new <p> tag. Need to reveal multiple/series of <p> tags
+	 		}
+	 	})
+	 }
+
+	 reveal4Para();
+
+	var reveal5Para = function() {
+	 	fifthLinkId.addEventListener('click', function(){
+	 	//add a click listener to the <a> tag
+	 		
+	 		var para5 = document.querySelectorAll('.fourth_paragraph')
+	 		for (var i = 0; i < para5.length; i++) {
+	 			para5[i].style.display = 'block';
+	 			//when clicked lyrics are revealed. Find it by its class and change its display to inline/block.
+	 			//querySelectorAll and For loop required because each line is a new <p> tag. Need to reveal multiple/series of <p> tags	 			
+	 		}
+	 	})
+	 }
+
+	 reveal5Para();
 
 
-	
+
+
+
+
+
+
+
+
+
+
+
+
