@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded',function(){
     //Function to randomize selected colors
     var randomColors = function() {
     return colors[Math.floor(Math.random()*colors.length)];
-    };
-
+    };  
 
     var firstLink = document.getElementById('first_paragraph');
     var firstParagraph = document.querySelector('.first_paragraph');
@@ -34,26 +33,31 @@ document.addEventListener('DOMContentLoaded',function(){
 
     firstLink.addEventListener('click', function(){
         firstParagraph.style.backgroundColor = randomColors();
+        setTimeout(function(){ firstParagraph.style.backgroundColor = "white"; }, 5000);
     });
     
     secondLink.addEventListener('click', function(){
         secondParagraph.style.display = "block";
         secondParagraph.style.backgroundColor = randomColors();
+        setTimeout(function(){ secondParagraph.style.backgroundColor = "white"; }, 5000);
     });
 
     thirdLink.addEventListener('click', function(){
         firstChorus.style.display = "block";
         firstChorus.style.backgroundColor = randomColors();
+        setTimeout(function(){ firstChorus.style.backgroundColor = "white"; }, 5000);
     });
 
     fourthLink.addEventListener('click', function(){
         thirdParagraph.style.display = "block";
         thirdParagraph.style.backgroundColor = randomColors();
+        setTimeout(function(){ thirdParagraph.style.backgroundColor = "white"; }, 5000);
     });    
 
     fifthLink.addEventListener('click', function(){
         fourthParagraph.style.display = "block";
         fourthParagraph.style.backgroundColor = randomColors();
+        setTimeout(function(){ fourthParagraph.style.backgroundColor = "white"; }, 5000);
     });
 
 });
